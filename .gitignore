@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#database files in server
+server/foobar.db
+server/foobar.db/shm
+server/foobar.db/wal

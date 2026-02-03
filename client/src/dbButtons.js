@@ -1,5 +1,5 @@
 import { els } from "./ui.js";
-import { submitData } from "./api.js";
+import { submitData, fetchSubmissions } from "./api.js";
 import { state } from "./getGeolocation.js";
 
 //handle data submission
@@ -28,6 +28,12 @@ async function handleSubmit() {
 //handle data retrieval
 async function handleExport() {
   console.log("Exporting data...");
+  try {
+    const data = await fetchSubmissions();
+    console.log("Submissions from server:", data);
+  } catch (error) {
+    console.error("Export failed:", error);
+  }
 }
 
 //wire ui elements to functions
