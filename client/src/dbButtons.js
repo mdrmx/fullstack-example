@@ -16,7 +16,8 @@ async function handleSubmit() {
     };
     try {
       console.log("Submitting data:", payload);
-      await submitData(payload);
+      const response = await submitData(payload);
+      console.log(response);
     } catch (error) {
       console.error("Error submitting data:", error);
     }
