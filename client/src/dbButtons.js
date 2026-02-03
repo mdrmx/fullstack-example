@@ -1,16 +1,18 @@
 import { els } from "./ui.js";
 import { submitData } from "./api.js";
+import { state } from "./getGeolocation.js";
 
 //handle data submission
 async function handleSubmit() {
   //only submit if geolocation is initialised
-  if (els.latitude.textContent && els.longitude.textContent) {
+  if (state.latitude && state.longitude) {
+    //create data payload object using state and UI values
     const payload = {
       name: els.name.value,
-      lat: parseFloat(els.latitude.textContent.split(": ")[1]),
-      lon: parseFloat(els.longitude.textContent.split(": ")[1]),
-      temp: parseFloat(els.temperature.textContent.split(": ")[1]),
-      humidity: parseFloat(els.humidity.textContent.split(": ")[1]),
+      lat: state.latitude,
+      lon: state.longitude,
+      temp: state.temperature,
+      humidity: state.humidity,
     };
     try {
       console.log("Submitting data:", payload);

@@ -1,0 +1,26 @@
+{
+  "name": "full-stack-example",
+  "version": "1.0.0",
+  "description": "a full stack example using vite built front-end and express server back-end",
+  "homepage": "https://github.com/mdrmx/fullstack-example#readme",
+  "bugs": {
+    "url": "https://github.com/mdrmx/fullstack-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdrmx/fullstack-example.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm:dev --prefix server\" \"npm:dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
