@@ -1,6 +1,6 @@
-import { els } from "./ui.js";
-import { submitData, fetchSubmissions } from "./api.js";
-import { state } from "./getGeolocation.js";
+import { els } from "../ui.js";
+import { submitData, fetchSubmissions } from "../api.js";
+import { state } from "../getGeolocation.js";
 
 //handle data submission
 async function handleSubmit() {
@@ -38,7 +38,28 @@ async function handleExport() {
 }
 
 //wire ui elements to functions
-export function wireEvents() {
-  els.submitBtn.addEventListener("click", handleSubmit);
-  els.exportBtn.addEventListener("click", handleExport);
+function wireEvents([submitBtn, exportBtn]) {
+  submitBtn.addEventListener("click", handleSubmit);
+  exportBtn.addEventListener("click", handleExport);
+}
+
+export function createButtons() {
+  const container = document.createElement("div");
+  const submit = document.createElement("button");
+  const exportBtn = document.createElement("button");
+
+  container.id = "button-container";
+  submit.classList.add("button");
+  submit.id = "submit-btn";
+
+  exportBtn.classList.add("button", "export-button");
+  exportBtn.id = "export-btn";
+
+  submit.textContent = "submit";
+  exportBtn.textContent = "load database";
+
+  container.appendChild(submit);
+  container.appendChild(exportBtn);
+  wireEvents([submit, exportBtn]);
+  return container;
 }
