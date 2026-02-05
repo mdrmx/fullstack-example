@@ -15,7 +15,6 @@ function init() {
   app.appendChild(menuPanel);
   app.appendChild(data);
 
-  // wireEvents();
   initGeolocation();
 }
 
