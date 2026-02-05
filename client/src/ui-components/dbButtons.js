@@ -37,29 +37,29 @@ async function handleExport() {
   }
 }
 
-//wire ui elements to functions
-function wireEvents([submitBtn, exportBtn]) {
-  submitBtn.addEventListener("click", handleSubmit);
-  exportBtn.addEventListener("click", handleExport);
-}
+// //wire ui elements to functions
+// function wireEvents([submitBtn, exportBtn]) {}
 
 export function createButtons() {
   const container = document.createElement("div");
-  const submit = document.createElement("button");
+  const submitBtn = document.createElement("button");
   const exportBtn = document.createElement("button");
 
   container.id = "button-container";
-  submit.classList.add("button");
-  submit.id = "submit-btn";
 
-  exportBtn.classList.add("button", "export-button");
+  submitBtn.className = "button";
+  submitBtn.id = "submit-btn";
+  submitBtn.textContent = "submit";
+
+  exportBtn.className = "button";
   exportBtn.id = "export-btn";
-
-  submit.textContent = "submit";
   exportBtn.textContent = "load database";
 
-  container.appendChild(submit);
+  submitBtn.addEventListener("click", handleSubmit);
+  exportBtn.addEventListener("click", handleExport);
+
+  container.appendChild(submitBtn);
   container.appendChild(exportBtn);
-  wireEvents([submit, exportBtn]);
+
   return container;
 }

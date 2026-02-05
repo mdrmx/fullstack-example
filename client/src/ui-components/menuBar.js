@@ -1,4 +1,5 @@
 import { createMenuButton } from "./menu.js";
+
 export function createMenuBar() {
   const menudiv = document.createElement("div");
   menudiv.className = "menu-div";
